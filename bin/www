@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+var debug = require('debug')('exp');
+var app = require('../app');
+var  d = require('domain').create();
+var config = require("../config/config");
+
+//Start the app by listening on <port>
+var port = config.port;
+app.set('port', port);
+
+d.on('error', function(err) {
+    console.log("Caught with some error : " + err);
+})
+
+d.run(function() {
+    app.listen(app.get('port'), function() {
+        console.log(config.appname + " " + config.app.description);
+        console.log('Express server listening on port ' + app.get('port'));
+    });
+});

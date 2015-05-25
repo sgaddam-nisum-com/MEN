@@ -1,0 +1,25 @@
+  .rcorners2 {
+      width: 400px;
+      height: 200px;
+      position: absolute;
+      top: 0px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      border-radius: 25px;
+      border: 2px solid #8AC007;
+      padding: 20px;
+  }
+  
+  h1 {
+      text-align: center;
+  }
+  
+  .errors {
+      color: red;
+      text-align: center;
+  }
+  
+  .inner {}

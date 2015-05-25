@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>Login page</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+</head>
+
+<body>
+    <h1>Login Page</h1>
+    <div class="errors"><%= message%></div>
+    <div class="rcorners2">
+        <form action="/signin" method="post" name="login">
+            Username :
+            <input type="text" name="username" /> <br><br>Password :
+            <input type="password" name="password" /><br><br>
+            <input type="submit" value="Login" />
+            <input type="reset" value="Cancel" /> &nbsp;&nbsp;&nbsp;&nbsp;<a href=".">back</a>
+        </form>
+
+    </div>
+</body>
+
+</html>
