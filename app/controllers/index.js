@@ -4,7 +4,7 @@
 
 var User = require('../models/user');
 
-exports.home = function(req, res, next) {    
+exports.home = function(req, res, next) {
     res.render('home.html', {
         welcome: "Hi",
         user: req.user
@@ -12,12 +12,16 @@ exports.home = function(req, res, next) {
 };
 
 exports.signin = function(req, res, next) {
-    console.log("signin----")
-    User.find({}, function(err, docs) {
-        console.log(docs);
-    });
     res.render('signin.html', {
         message: req.flash('message')
+    });
+};
+
+exports.getUserByName = function(req, res, next) {
+    User.find({
+        name: req.query.name
+    }, function(err, docs) {
+        res.json(docs._id)
     });
 };
 

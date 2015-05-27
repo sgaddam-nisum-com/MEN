@@ -45,7 +45,8 @@ Step 2:
 #new console
 >my-client-devl.bat
 
-db.users.insert({})
+db.users.insert({name: "Kumar",    age: 23,    status: "Single"});
+
 db.feeds.find({title :"In the ECMAScript 6 shadows: Native errors"});
 
 show collections

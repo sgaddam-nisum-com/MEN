@@ -13,6 +13,8 @@ exports.init = function(app, passport, auth) {
     app.get('/login', index.signin);
     app.get('/signout', index.signout);
     app.get('/register', index.register);
+    app.get('/userbyname', index.getUserByName);
+
     app.get('/other', auth.user.hasAuthorization, index.other);
     app.get('/auth/success', function(req, res) {
         index.home(req, res);
