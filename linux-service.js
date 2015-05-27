@@ -40,7 +40,7 @@ svc.on('stop', function() {
     console.log(config.appname + " Tool Service stopped.");
 });
 
-svc.on('error ', function() {
+svc.on('error', function() {
     console.log(config.appname + " Tool Service has an error.");
 });
 
