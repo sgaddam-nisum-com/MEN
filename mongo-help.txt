@@ -1,0 +1,52 @@
+version - mongodb-win32-x86_64-2008plus-2.4.8
+
+INFO %RIVER https://console.run.pivotal.io
+
+Step 1: 
+>my-run-first.bat
+
+##from other console to create users
+>my-client.bat  
+===
+db = db.getSiblingDB("admin")
+db.addUser({user:'admin',pwd:"admin",roles:['userAdminAnyDatabase']})
+db.auth('admin','admin')
+db = db.getSiblingDB("men")
+db.addUser({user:'sgaddam',pwd:'sgaddam',roles:['userAdminAnyDatabase']})
+db.auth("sgaddam","sgaddam")
+
+==
+
+use men
+db.addUser( { user: "devl",pwd: "devl",roles: [ "readWrite", "dbAdmin" ]} )
+
+db.addUser( { user: "admin", pwd: "admin",roles: [ "userAdmin" ] } )
+
+
+#This command creates a collection named users with a maximum size of 80 kb and a maximum of 5000 documents.
+#db.createCollection("users", { capped : true, size : 8192, max : 5000 } )
+
+##The following command simply pre-allocates a 300 megabytes, uncapped collection named feeds
+#db.createCollection("feeds", { size: 314572800 } )
+
+##The following command simply pre-allocates a 7.81 megabytes, uncapped collection named feeds
+#db.createCollection("urls", { size: 8192000 } )
+
+db.createCollection("users", { capped : true, size : 8192, max : 5000 } )
+db.createCollection("feeds", { size: 314572800 } )
+db.createCollection("urls", { size: 8192000 } )
+db.createCollection("feed_updates", { size: 8192000 } )
+
+## created users and collections. now close all the console and strat new console to use authentication...
+
+Step 2: 
+
+>my-run-auth.bat
+#new console
+>my-client-devl.bat
+
+db.users.insert({})
+db.feeds.find({title :"In the ECMAScript 6 shadows: Native errors"});
+
+show collections
+db.feeds.find()

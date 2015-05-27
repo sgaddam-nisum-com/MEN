@@ -3,12 +3,12 @@ module.exports = {
         description: "Development environment is up..."
     },
     db: {
-        host: "",
-        port: "",
+        host: "127.0.0.1",
+        port: "30000",
 
-        name: "",
-        username: "",
-        password: ""
+        name: "men",
+        username: "devl",
+        password: "devl"
     },
     logger: {
         appender: "file",
